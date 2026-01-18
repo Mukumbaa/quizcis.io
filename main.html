@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz con Verifica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .question-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .option input[type="checkbox"],
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .option.correct-answer {
+            border-color: #10b981;
+            background: #d1fae5;
+        }
+
+        .option.wrong-answer {
+            border-color: #ef4444;
+            background: #fee2e2;
+        }
+
+        .question.correct {
+            border-left-color: #10b981;
+        }
+
+        .question.incorrect {
+            border-left-color: #ef4444;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            margin: 30px auto;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #5568d3;
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+            padding: 12px;
+            background: #6b7280;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: #4b5563;
+        }
+
+        .results {
+            display: none;
+            margin: 30px auto;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .results .score {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .results .percentage {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+
+        #questionsContainer {
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz di Verifica ESIT</h1>
+        <div id="questionsContainer"></div>
+        
+        <button class="submit-btn" id="submitBtn" onclick="submitQuiz()">Verifica Tutte le Risposte</button>
+        
+        <div class="results" id="results">
+            <h2>Risultati Quiz</h2>
+            <div class="score">
+                <span id="correctCount">0</span> / <span id="totalCount">0</span>
+            </div>
+            <div class="percentage" id="percentage">0%</div>
+        </div>
+
+        <button class="reset-btn" onclick="resetQuiz()">Ricomincia Quiz</button>
+    </div>
+
+    <!-- File con le domande - carica PRIMA dello script principale -->
+    <script src="domandeinc.js"></script>
+
+    <script>
+        function loadQuiz() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.setAttribute('data-question-id', index);
+                
+                const inputType = q.type === 'single' ? 'radio' : 'checkbox';
+                const questionNum = index + 1;
+
+                let optionsHTML = '';
+                q.options.forEach((opt, optIndex) => {
+                    const inputId = `q${questionNum}_opt${optIndex}`;
+                    const correctAttr = opt.correct ? 'data-correct' : '';
+                    
+                    optionsHTML += `
+                        <div class="option">
+                            <input type="${inputType}" name="q${questionNum}" id="${inputId}" value="${optIndex}" ${correctAttr}>
+                            <label for="${inputId}">${opt.text}</label>
+                        </div>
+                    `;
+                });
+
+                questionDiv.innerHTML = `
+                    <div class="question-title">${questionNum}. ${q.question}</div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                `;
+
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            let correctAnswers = 0;
+            const totalQuestions = questions.length;
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.querySelector(`[data-question-id="${index}"]`);
+                const options = questionDiv.querySelectorAll('.option');
+                const inputs = questionDiv.querySelectorAll(`input[name="q${index + 1}"]`);
+                const inputType = q.type === 'single' ? 'radio' : 'checkbox';
+                
+                let isCorrect = true;
+                let hasSelection = false;
+
+                if (inputType === 'radio') {
+                    let selectedCorrect = false;
+                    inputs.forEach(input => {
+                        if (input.checked) {
+                            hasSelection = true;
+                            if (input.hasAttribute('data-correct')) {
+                                selectedCorrect = true;
+                            }
+                        }
+                    });
+                    isCorrect = selectedCorrect && hasSelection;
+
+                    options.forEach(option => {
+                        const input = option.querySelector('input');
+                        if (input.checked && !input.hasAttribute('data-correct')) {
+                            option.classList.add('wrong-answer');
+                        } else if (input.hasAttribute('data-correct')) {
+                            option.classList.add('correct-answer');
+                        }
+                    });
+
+                } else if (inputType === 'checkbox') {
+                    inputs.forEach(input => {
+                        const isChecked = input.checked;
+                        const shouldBeChecked = input.hasAttribute('data-correct');
+                        
+                        if (isChecked) hasSelection = true;
+
+                        if (isChecked !== shouldBeChecked) {
+                            isCorrect = false;
+                        }
+                    });
+
+                    options.forEach(option => {
+                        const input = option.querySelector('input');
+                        const isChecked = input.checked;
+                        const shouldBeChecked = input.hasAttribute('data-correct');
+
+                        if (isChecked && !shouldBeChecked) {
+                            option.classList.add('wrong-answer');
+                        } else if (!isChecked && shouldBeChecked) {
+                            option.classList.add('wrong-answer');
+                        } else if (isChecked && shouldBeChecked) {
+                            option.classList.add('correct-answer');
+                        }
+                    });
+                }
+
+                // Colora il bordo della domanda
+                if (!hasSelection) {
+                    questionDiv.classList.add('incorrect');
+                } else if (isCorrect) {
+                    questionDiv.classList.add('correct');
+                    correctAnswers++;
+                } else {
+                    questionDiv.classList.add('incorrect');
+                }
+            });
+
+            // Mostra i risultati
+            const resultsDiv = document.getElementById('results');
+            const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+            
+            document.getElementById('correctCount').textContent = correctAnswers;
+            document.getElementById('totalCount').textContent = totalQuestions;
+            document.getElementById('percentage').textContent = percentage + '%';
+            
+            resultsDiv.classList.add('show');
+            
+            // Disabilita il pulsante
+            document.getElementById('submitBtn').disabled = true;
+
+            // Scroll ai risultati
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            // Reset tutti i radio e checkbox
+            document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+                input.checked = false;
+            });
+
+            // Rimuovi le classi di colorazione
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('correct-answer', 'wrong-answer');
+            });
+
+            document.querySelectorAll('.question').forEach(question => {
+                question.classList.remove('correct', 'incorrect');
+            });
+
+            // Nascondi i risultati
+            document.getElementById('results').classList.remove('show');
+
+            // Riabilita il pulsante
+            document.getElementById('submitBtn').disabled = false;
+
+            // Scroll all'inizio
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Carica il quiz all'avvio
+        loadQuiz();
+    </script>
+</body>
+</html>
