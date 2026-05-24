@@ -1,564 +1,727 @@
 const questions = [
-    {
-        question: "In order to subscribe multiple topics we can use:",
-        type: "multiple",
-        options: [
-            { text: "the multi level wildcard *", correct: false },
-            { text: "the single level wildcard +", correct: true },
-            { text: "the multi level wildcard #", correct: true },
-            { text: "the single level wildcard ?", correct: false }
-        ]
-    },
-    {
-        question: "The Controller Area Network (CAN) is:",
-        type: "multiple",
-        options: [
-            { text: "an asynchronous parallel communication interface specification used for long distance communication between sensors", correct: false },
-            { text: "a multi-master serial bus standard for connecting nodes (ECU, Electronic Control Units)", correct: true },
-            { text: "a message-based protocol, designed originally for multiplex electrical wiring within automobiles to save cables", correct: true },
-            { text: "a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other in applications without a host computer", correct: true }
-        ]
-    },
-    {
-        question: "In the context of a toolchain, the floating point support must be defined:",
-        type: "single",
-        options: [
-            { text: "Through an environment variable", correct: false },
-            { text: "Exploiting the flag “-mcpu”", correct: false },
-            { text: "During the toolchain configuration", correct: true },
-            { text: "During the compilation process", correct: false }
-        ]
-    },
-    {
-        question: "The CPU architecture and cross-compiler prefix are defined through several variables in the toplevel Makefile, what are these variables?",
-        type: "multiple",
-        options: [
-            { text: "CROSS_COMPILE", correct: true },
-            { text: "ARCH", correct: true },
-            { text: "ARCH_TYPE", correct: false },
-            { text: "CROSS_ARCHITECTURE", correct: false }
-        ]
-    },
-    {
-        question: "The MQTT $SYS topic:",
-        type: "multiple",
-        options: [
-            { text: "is reserved to publish information about the MQTT broker", correct: true },
-            { text: "is not represent a standard topic", correct: true },
-            { text: "represents a standard topic used by most MQTT brokers to publish information about them", correct: false },
-            { text: "is a read-only topic", correct: true }
-        ]
-    },
-    {
-        question: "According to the Ohm's Law, the formula to use in order to calculate the electrical current is:",
-        type: "single",
-        options: [
-            { text: "Current = Voltage / Resistance²", correct: false },
-            { text: "Current = Voltage / Resistance", correct: true },
-            { text: "Current = Voltage - Resistance", correct: false },
-            { text: "Current = Voltage x Resistance", correct: false }
-        ]
-    },
-    {
-        question: "The Universal Asynchronous Receiver-Transmitter (UART) is:",
-        type: "multiple",
-        options: [
-            { text: "a protocol able to operate in Simplex, Full-duplex, and Half-duplex mode", correct: true },
-            { text: "one of most used standard protocols transmitting digital data over short distances", correct: true },
-            { text: "a protocol that takes bytes of data and transmits the individual bits in a sequential way", correct: true },
-            { text: "a protocol based on a shift register", correct: true }
-        ]
-    },
-    {
-        question: "The pressure that forces electrons to flow through a circuit is named:",
-        type: "single",
-        options: [
-            { text: "Farad force or capacitance", correct: false },
-            { text: "Magnetomotive force or inductance", correct: false },
-            { text: "Electromotive force or voltage", correct: true },
-            { text: "Thermal force or heat", correct: false }
-        ]
-    },
-    {
-        question: "An advantage of the I2C/TWI protocol is:",
-        type: "single",
-        options: [
-            { text: "The involved devices do not need an unique address", correct: false },
-            { text: "It uses only one wire", correct: false },
-            { text: "It allows us to vary the communication speed", correct: true },
-            { text: "It operates through simple transactions", correct: false }
-        ]
-    },
-    {
-        question: "The UART communication can be:",
-        type: "multiple",
-        options: [
-            { text: "Half-duplex", correct: true },
-            { text: "Simplex", correct: true },
-            { text: "Full-duplex", correct: true },
-            { text: "General-purpose", correct: false }
-        ]
-    },
-    {
-        question: "In the context of the embedded protocols, the acronym SPI stands for:",
-        type: "single",
-        options: [
-            { text: "Serial Path Interface", correct: false },
-            { text: "Serial Peripheral Interface", correct: true },
-            { text: "Synchronous Peripheral Interface", correct: false },
-            { text: "Synchronous Peripheral Interconnession", correct: false }
-        ]
-    },
-    {
-        question: "The Universal Asynchronous Receiver-Transmitter (UART) protocol:",
-        type: "multiple",
-        options: [
-            { text: "it takes bytes of data and transmits the individual bits in an asynchronous way", correct: false },
-            { text: "it converts a data signal from serial to parallel", correct: true },
-            { text: "It is one of most used standard protocols for transmitting digital data over long distances", correct: false },
-            { text: "It is one of most used standard protocols for transmitting digital data over short distances", correct: true }
-        ]
-    },
-    {
-        question: "The SPI protocol is not suitable for short distance sensors",
-        type: "single",
-        options: [
-            { text: "Vero", correct: false },
-            { text: "Falso", correct: true }
-        ]
-    },
-    {
-        question: "CAN and MODBUS are two application protocols",
-        type: "single",
-        options: [
-            { text: "Vero", correct: true },
-            { text: "Falso", correct: false }
-        ]
-    },
-    {
-        question: "The Local Interconnect Network (LIN) is:",
-        type: "multiple",
-        options: [
-            { text: "an asynchronous serial communication interface specification used for long distance communication between sensors", correct: false },
-            { text: "a serial network protocol used for communication between components in vehicles", correct: true },
-            { text: "a broadcast serial network comprising 16 nodes, which are typically one master and up to 15 slaves", correct: true },
-            { text: "a cheap serial network used to implement the new technologies in vehicles", correct: true }
-        ]
-    },
-    {
-        question: "In a CAN network, all nodes are connected to each other through a two wire bus",
-        type: "single",
-        options: [
-            { text: "Vero", correct: true },
-            { text: "Falso", correct: false }
-        ]
-    },
-    {
-        question: "Some disadvantage of the I2C/TWI protocol are:",
-        type: "multiple",
-        options: [
-            { text: "It is not suitable for short distance sensors", correct: false },
-            { text: "It allows us only half-duplex communications", correct: true },
-            { text: "The transactions are complex, involving clock detection, start condition, stop condition, etc.", correct: true },
-            { text: "It can not be used in embedded systems", correct: false }
-        ]
-    },
-    {
-        question: "In an UART communication, the communications line starts in:",
-        type: "single",
-        options: [
-            { text: "It depends on the number of connected devices", correct: false },
-            { text: "High state", correct: true },
-            { text: "High or Low state", correct: false },
-            { text: "Low state", correct: false }
-        ]
-    },
-    {
-        question: "LIN is a broadcast serial network comprising 16 nodes, which are typically up to 15 masters and one slave",
-        type: "single",
-        options: [
-            { text: "Vero", correct: false },
-            { text: "Falso", correct: true }
-        ]
-    },
-    {
-        question: "In the SPI protocol, during a clock cycle an half-duplex data transmission is performed",
-        type: "single",
-        options: [
-            { text: "Vero", correct: false },
-            { text: "Falso", correct: true }
-        ]
-    },
-    {
-        question: "A disadvantage related to UART is its predefined speed of communication",
-        type: "single",
-        options: [
-            { text: "Vero", correct: true },
-            { text: "Falso", correct: false }
-        ]
-    },
-    {
-        question: "The MODBUS protocol is:",
-        type: "single",
-        options: [
-            { text: "a serial communications protocol", correct: true },
-            { text: "a parallel communications protocol", correct: false },
-            { text: "it is not a protocol", correct: false },
-            { text: "a serial and parallel communications protocol", correct: false }
-        ]
-    },
-    {
-        question: "A serial transmission of digital information (bits) through a single wire is:",
-        type: "single",
-        options: [
-            { text: "more costly than a parallel transmission by using multiple wires", correct: false },
-            { text: "has the same cost of a parallel transmission by using multiple wires", correct: false },
-            { text: "digital transmissions can be performed only through a serial way", correct: false },
-            { text: "less costly than a parallel transmission by using multiple wires", correct: true }
-        ]
-    },
-    {
-        question: "Some advantages of the I2C/TWI protocol are:",
-        type: "single",
-        options: [
-            { text: "The transactions are simple", correct: false },
-            { text: "It can be used in embedded systems", correct: true },
-            { text: "It allows us half-duplex communications", correct: false },
-            { text: "It allows us to perform full-duplex communications", correct: false }
-        ]
-    },
-    {
-        question: "A communication protocol:",
-        type: "multiple",
-        options: [
-            { text: "defines the rules syntax, semantics, and synchronization of communication", correct: true },
-            { text: "can be implemented by hardware, software, or a combination of both", correct: true },
-            { text: "is a system of rules that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity", correct: true },
-            { text: "defines the possible error recovery methods", correct: true }
-        ]
-    },
-    {
-        question: "The CAN protocol is:",
-        type: "single",
-        options: [
-            { text: "a parallel to serial IoT protocol", correct: false },
-            { text: "a message-based protocol", correct: true },
-            { text: "an event-based protocol", correct: false },
-            { text: "it is not a protocol", correct: false }
-        ]
-    },
-    {
-        question: "Select the incorrect statements regarding MQTT:",
-        type: "multiple",
-        options: [
-            { text: "MQTT protocol specification is open but not royalty free", correct: true },
-            { text: "MQTT API uses a set of well defined topics", correct: true },
-            { text: "MQTT API uses a set of well defined verbs", correct: false },
-            { text: "MQTT is industry agnostic", correct: false }
-        ]
-    },
-    {
-        question: "What limits the current that flows through a circuit for a particular applied DC voltage:",
-        type: "single",
-        options: [
-            { text: "Reactance", correct: false },
-            { text: "Isolation", correct: false },
-            { text: "Saturation", correct: false },
-            { text: "Resistance", correct: true }
-        ]
-    },
-    {
-        question: "Select the incorrect statements regarding Linux Kernel:",
-        type: "multiple",
-        options: [
-            { text: "Some Linux kernel components are architecture-independent", correct: false },
-            { text: "Linux kernel is also designed for small microcontrollers", correct: true },
-            { text: "All Linux kernel components are architecture-independent", correct: true },
-            { text: "Linux kernel supports the MMU architectures", correct: false }
-        ]
-    },
-    {
-        question: "The unit of charge is called:",
-        type: "single",
-        options: [
-            { text: "Potential difference", correct: false },
-            { text: "Joule", correct: false },
-            { text: "Farad", correct: false },
-            { text: "Coulomb", correct: true }
-        ]
-    },
-    {
-        question: "The basic unit of electric current is the:",
-        type: "single",
-        options: [
-            { text: "Watt", correct: false },
-            { text: "Ohm", correct: false },
-            { text: "Ampere", correct: true },
-            { text: "Volt", correct: false }
-        ]
-    },
-    {
-        question: "All binaries in a system:",
-        type: "single",
-        options: [
-            { text: "must be compiled with the same ABI", correct: true },
-            { text: "must be compiled with several ABI versions (their number depends on the hardware)", correct: false },
-            { text: "can be compiled with different but compatible versions of ABI", correct: false },
-            { text: "do not involve ABI in the compilation process", correct: false }
-        ]
-    },
-    {
-        question: "If the “clean session” option is set to true:",
-        type: "multiple",
-        options: [
-            { text: "the client does not have a persistent session", correct: true },
-            { text: "the client has a persistent session", correct: false },
-            { text: "all information are lost when the client disconnects", correct: true },
-            { text: "all information are preserved when the client disconnects", correct: false }
-        ]
-    },
-    {
-        question: "MQTT Topics are:",
-        type: "multiple",
-        options: [
-            { text: "case sensitive and they must have at least two characters", correct: false },
-            { text: "structured in a hierarchy similar to a file-system", correct: true },
-            { text: "not case sensitive and they must have at least one character", correct: false },
-            { text: "case sensitive and they must have at least one character", correct: true }
-        ]
-    },
-    {
-        question: "The instrument able to measure the electric current is the:",
-        type: "single",
-        options: [
-            { text: "Ohmmeter", correct: false },
-            { text: "Wavemeter", correct: false },
-            { text: "Voltmeter", correct: false },
-            { text: "Ammeter", correct: true }
-        ]
-    },
-    {
-        question: "In terms of electrical conductivity all materials can be classified as:",
-        type: "single",
-        options: [
-            { text: "Conductors, Insulators, Semiconductors", correct: true },
-            { text: "Conductors, Semiconductors", correct: false },
-            { text: "Conductors, Insulators, Semiconductors, Seminsulators", correct: false },
-            { text: "Conductors, Insulators", correct: false }
-        ]
-    },
-    {
-        question: "The topics are created dynamically in the following cases:",
-        type: "multiple",
-        options: [
-            { text: "When someone publishes a message to a topic with the “retained message” option set to False", correct: false },
-            { text: "When someone publishes a message to a topic with the “retained message” option set to True", correct: true },
-            { text: "When the MQTT broker receives a message", correct: false },
-            { text: "When someone subscribes to a topic", correct: true }
-        ]
-    },
+  // LEZIONE 1
+  {
+    question: "Un indirizzo Bitcoin legacy inizia con il numero '3'.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "La proof-of-work in Bitcoin diventa sempre più facile nel tempo.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il white paper di Bitcoin è stato pubblicato da Satoshi Nakamoto nel 2008.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Bitcoin ha un limite massimo di 21 milioni di monete, tutte già state generate.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Nella crittografia asimmetrica, la stessa chiave viene usata per cifrare e decifrare.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il Lightning Network è una soluzione di secondo livello per aumentare la scalabilità di Bitcoin.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "L’attacco del 51% richiede che un singolo miner controlli più del 50% della potenza di hash della rete.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il blocco genesis di Bitcoin contiene un messaggio tratto dal quotidiano The Times.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La commissione di una transazione Bitcoin è calcolata in base all’importo trasferito.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "La tecnologia blockchain è stata progettata solo per gestire le criptovalute.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Un hardware wallet è considerato un cold wallet perché non è permanentemente connesso a Internet.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Nel sistema Bitcoin, le transazioni sono verificate da un’autorità centrale come una banca.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "L’output di una funzione hash ha lunghezza variabile a seconda dell’input.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il double spending è il tentativo di utilizzare più volte la stessa moneta digitale.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Chi possiede la chiave privata di un indirizzo Bitcoin può disporre dei fondi associati.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il Merkle Tree permette di verificare l’inclusione di una transazione in un blocco senza scaricare l’intero blocco.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Bitcoin è stato ideato da un gruppo di sviluppatori noto come Satoshi Nakamoto tra il 2008 e il 2009.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Nella rete Bitcoin tutti i nodi sono uguali e non esiste gerarchia (peer-to-peer).",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Un UTXO è un output di transazione non ancora speso.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Una transazione registrata nella blockchain Bitcoin può essere annullata da un’autorità centrale.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "L’indirizzo Bitcoin in formato Bech32 inizia con 'bc1'.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il tempo medio di generazione di un blocco in Bitcoin è di circa 10 minuti.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Un hard fork è una modifica del protocollo che non è retrocompatibile.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Bitcoin utilizza l’algoritmo di hash SHA-256 per calcolare l’impronta dei blocchi.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "I full node scaricano e verificano l’intera blockchain Bitcoin.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Le transazioni Bitcoin sono pseudonime perché gli indirizzi non sono direttamente legati all’identità reale.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Una funzione hash è facilmente invertibile, cioè dall’hash si può risalire al dato originale.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il premio per il mining di Bitcoin si dimezza ogni 4 anni circa, evento chiamato halving.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La proof-of-work è energeticamente efficiente rispetto ad altri algoritmi di consenso.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Taproot è un aggiornamento di Bitcoin che introduce le firme Schnorr e migliora la privacy.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
 
+  // LEZIONE 2
+  {
+    question: "La proof-of-stake è energeticamente più efficiente della proof-of-work.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "In Italia, il Decreto Semplificazioni del 2018 ha dato valore legale agli smart contract.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Le ICO (Initial Coin Offering) sono state utilizzate per raccogliere fondi per progetti blockchain.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Zcash utilizza le zero-knowledge proof (zk-SNARK) per garantire la privacy.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il problema dei generali bizantini descrive la difficoltà di raggiungere il consenso in presenza di nodi malevoli.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "DePIN (Decentralized Physical Infrastructure Network) si riferisce a infrastrutture fisiche decentralizzate gestite tramite blockchain.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il regolamento MiCA dell’Unione Europea disciplina i mercati delle criptovalute.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Solana utilizza un algoritmo di consenso chiamato Proof of History (PoH).",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Le blockchain permissionless permettono a chiunque di inviare transazioni, mentre quelle permissioned richiedono autorizzazione.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Cardano utilizza un protocollo di consenso chiamato Ouroboros.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il modello Stock-to-Flow è stato utilizzato per prevedere il prezzo del Bitcoin.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "IOTA si basa su una struttura dati chiamata Tangle, che è un grafo aciclico orientato (DAG).",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Lo sharding è una tecnica che divide la blockchain in parti per migliorare la scalabilità.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Monero utilizza le ring signatures per offuscare l’origine delle transazioni.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Una sidechain è una blockchain indipendente collegata a una blockchain principale tramite un peg a due vie.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Polkadot mira all’interoperabilità tra diverse blockchain tramite una relay chain e parachain.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Dogecoin è nato come scherzo (memecoin) ed è un fork di Litecoin.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Algorand utilizza un meccanismo di consenso basato su sorteggio casuale dei validatori (Pure PoS).",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "L’algoritmo PBFT richiede che meno di 1/3 dei nodi sia bizantino per funzionare correttamente.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Le stablecoin come Tether mantengono il valore ancorato a una valuta fiat o a un asset.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La Proof of Authority (PoA) si basa sulla reputazione dei validatori ed è spesso usata in blockchain private.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "EOS e Cardano sono state definite “Ethereum killer” perché mirano a superare Ethereum.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "L’EBSI è l’infrastruttura europea di servizi blockchain per la pubblica amministrazione.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Litecoin utilizza un tempo di blocco di 10 minuti, come Bitcoin.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Le blockchain 1.0 sono principalmente focalizzate sugli smart contract.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Nella proof-of-stake, i validatori vengono scelti in base alla loro potenza di calcolo.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "IPFS è un sistema di archiviazione distribuita che utilizza identificatori basati sul contenuto (CID).",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La Proof of Burn richiede di consumare energia elettrica per ottenere il diritto di mining.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il problema del double spending non esiste nelle blockchain permissioned.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Le zero-knowledge proof permettono di dimostrare la conoscenza di un segreto senza rivelarlo.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
 
-    // --- SEZIONE: NodeMCU & Electronics ---
-    {
-        question: "NodeMCU allows us to design IoT projects by using which specific programming language?",
-        type: "single",
-        options: [
-            { text: "Python", correct: false },
-            { text: "Lua", correct: true },
-            { text: "Java", correct: false },
-            { text: "Assembly", correct: false }
-        ]
-    },
-    {
-        question: "In the context of digital logic circuits, what is the purpose of a Pull-up or Pull-down circuit?",
-        type: "single",
-        options: [
-            { text: "To increase the voltage level of the output", correct: false },
-            { text: "To avoid the floating input problem (indeterminate state)", correct: true },
-            { text: "To convert AC current to DC current", correct: false },
-            { text: "To increase the speed of the bus", correct: false }
-        ]
-    },
-    {
-        question: "Which of the following statements about the ESP32 compared to the ESP8266 is true?",
-        type: "multiple",
-        options: [
-            { text: "ESP32 has a dual-core processor while ESP8266 is single-core", correct: true },
-            { text: "ESP32 supports both Wi-Fi and Bluetooth", correct: true },
-            { text: "ESP32 has fewer GPIO pins than ESP8266", correct: false },
-            { text: "ESP32 is generally less power efficient than ESP8266", correct: false }
-        ]
-    },
-
-    // --- SEZIONE: Embedded Linux & Compilation ---
-    {
-        question: "In a cross-compilation procedure, the 'Host Machine' is:",
-        type: "single",
-        options: [
-            { text: "The machine where the toolchain is built", correct: false },
-            { text: "The machine where the binaries created by the toolchain are executed", correct: false },
-            { text: "The machine where the toolchain is executed to generate code", correct: true },
-            { text: "The machine used to store the source code repository", correct: false }
-        ]
-    },
-    {
-        question: "The Linux Kernel makes system and kernel information available in user space through pseudo filesystems. Which of the following are pseudo filesystems?",
-        type: "multiple",
-        options: [
-            { text: "/proc", correct: true },
-            { text: "/sys", correct: true },
-            { text: "/home", correct: false },
-            { text: "/etc", correct: false }
-        ]
-    },
-    {
-        question: "What is a 'Device Tree' in the context of Embedded Linux?",
-        type: "single",
-        options: [
-            { text: "A file system structure for organizing user files", correct: false },
-            { text: "A data structure and language for describing non-discoverable hardware", correct: true },
-            { text: "A graphical interface to configure the kernel", correct: false },
-            { text: "A tree of all connected USB devices", correct: false }
-        ]
-    },
-    {
-        question: "Which license is the Linux Kernel released under?",
-        type: "single",
-        options: [
-            { text: "Apache License 2.0", correct: false },
-            { text: "GNU General Public License version 2 (GPLv2)", correct: true },
-            { text: "MIT License", correct: false },
-            { text: "BSD License", correct: false }
-        ]
-    },
-    {
-        question: "What is the role of the 'Bootloader' in an embedded system?",
-        type: "multiple",
-        options: [
-            { text: "Basic hardware initialization", correct: true },
-            { text: "Loading the application binary (usually OS kernel) from storage to memory", correct: true },
-            { text: "Managing the memory after the OS has started", correct: false },
-            { text: "Providing a shell for basic operations (memory inspection, flashing)", correct: true }
-        ]
-    },
-
-    // --- SEZIONE: AWS IoT & Cloud ---
-    {
-        question: "In AWS IoT, what is a 'Device Shadow'?",
-        type: "single",
-        options: [
-            { text: "A backup copy of the device firmware", correct: false },
-            { text: "A persistent virtual version of a device that includes its last state", correct: true },
-            { text: "A security protocol to hide the device identity", correct: false },
-            { text: "A log file containing all errors generated by the device", correct: false }
-        ]
-    },
-    {
-        question: "The AWS IoT 'Rules Engine' allows you to:",
-        type: "multiple",
-        options: [
-            { text: "Transform and process data on the fly", correct: true },
-            { text: "Route messages to other AWS services (like DynamoDB or S3)", correct: true },
-            { text: "Physically connect the wires of the sensors", correct: false },
-            { text: "Compile the code for the microcontroller", correct: false }
-        ]
-    },
-
-    // --- SEZIONE: Docker ---
-    {
-        question: "What is a Docker 'Container'?",
-        type: "single",
-        options: [
-            { text: "A heavy virtual machine with its own full operating system", correct: false },
-            { text: "A read-only template used to create images", correct: false },
-            { text: "An encapsulated application and its dependencies running as a portable unit", correct: true },
-            { text: "A hardware component used to store data", correct: false }
-        ]
-    },
-    {
-        question: "Which command is used to run a Docker container from an image?",
-        type: "single",
-        options: [
-            { text: "docker start", correct: false },
-            { text: "docker run", correct: true },
-            { text: "docker execute", correct: false },
-            { text: "docker build", correct: false }
-        ]
-    },
-
-    // --- SEZIONE: Node-RED ---
-    {
-        question: "Node-RED is built on which runtime environment?",
-        type: "single",
-        options: [
-            { text: "Python", correct: false },
-            { text: "Java Runtime Environment", correct: false },
-            { text: "Node.js", correct: true },
-            { text: ".NET Framework", correct: false }
-        ]
-    },
-    {
-        question: "In Node-RED, the basic building blocks used to create a flow are called:",
-        type: "single",
-        options: [
-            { text: "Bricks", correct: false },
-            { text: "Nodes", correct: true },
-            { text: "Functions", correct: false },
-            { text: "Wires", correct: false }
-        ]
-    },
-    {
-        question: "What is the name of the standard JavaScript object passed between nodes in Node-RED?",
-        type: "single",
-        options: [
-            { text: "packet", correct: false },
-            { text: "data", correct: false },
-            { text: "msg", correct: true },
-            { text: "payload_obj", correct: false }
-        ]
-    },
-
-    // --- SEZIONE: Robotics ---
-    {
-        question: "Which type of robot features a horizontal jointed arm structure and is widely used for pick-and-place operations?",
-        type: "single",
-        options: [
-            { text: "Anthropomorphic Robot", correct: false },
-            { text: "SCARA Robot", correct: true },
-            { text: "Cartesian Robot", correct: false },
-            { text: "Mobile Robot", correct: false }
-        ]
-    },
-    {
-        question: "In robotics, 'Forward Kinematics' deals with:",
-        type: "single",
-        options: [
-            { text: "Determining the joint angles required to reach a specific position", correct: false },
-            { text: "Predicting the position and orientation of the end-effector based on joint angles", correct: true },
-            { text: "Calculating the power consumption of the motors", correct: false },
-            { text: "Sensing the environment using cameras", correct: false }
-        ]
-    },
-    {
-        question: "What is an 'End Effector' in a robot?",
-        type: "single",
-        options: [
-            { text: "The main controller or brain of the robot", correct: false },
-            { text: "The battery or power source", correct: false },
-            { text: "The tool or mechanism attached to the robot's arm to perform specific tasks", correct: true },
-            { text: "The sensor used to detect obstacles", correct: false }
-        ]
-    },
-    {
-        question: "A Cartesian Robot operates on which coordinate system?",
-        type: "single",
-        options: [
-            { text: "Cylindrical (r, θ, z)", correct: false },
-            { text: "Spherical (r, θ, φ)", correct: false },
-            { text: "Three-axis Cartesian (X, Y, Z)", correct: true },
-            { text: "Parallel linkage system", correct: false }
-        ]
-    }
-    
+  // LEZIONE 3
+  {
+    question: "Il checksum degli indirizzi Ethereum utilizza l’hash SHA3 e le maiuscole/minuscole.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Lo standard ERC-20 definisce i token non fungibili (NFT).",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "La base fee nelle transazioni Ethereum viene bruciata (distrutta) dopo l’EIP-1559.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "In Ethereum, le transazioni possono avere più input e più output come in Bitcoin.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il tempo medio di blocco su Ethereum è di circa 12 secondi.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Ethereum ha un limite massimo di 21 milioni di Ether.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "L’aggiornamento Shanghai ha permesso agli staker di prelevare i propri ETH bloccati.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Una DAO è un’organizzazione gestita da smart contract senza una gerarchia tradizionale.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Le testnet come Sepolia permettono di testare contratti usando Ether fittizio.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "I validatori in Ethereum 2.0 devono depositare almeno 32 ETH per diventare validatori.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il gas price è stabilito solo dall’utente e non varia dinamicamente.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Un NFT è un token unico e non intercambiabile.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La finalizzazione di un blocco su Ethereum 2.0 avviene immediatamente dopo la sua creazione.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Le DApp sono applicazioni che combinano componenti on-chain e off-chain.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "In Ethereum, la lettura dello stato di uno smart contract (call) richiede sempre il pagamento del gas.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Il termine “The Merge” si riferisce all’unione della beacon chain (PoS) con la mainnet.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "I blob introdotti con l’aggiornamento Dencun vengono conservati permanentemente sulla blockchain.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Lo slashing in Ethereum 2.0 comporta la perdita dello stake in caso di comportamento malevolo.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La moneta nativa di Ethereum si chiama Ether e il suo simbolo è ETH.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "L’attacco alla DAO del 2016 ha portato alla creazione di Ethereum Classic.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "La proof-of-stake di Ethereum elimina completamente la necessità di un meccanismo di consenso.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "Gli smart contract su Ethereum sono immutabili una volta deployati.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il gas è l’unità di misura del costo computazionale di una transazione o di uno smart contract.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "I rollup sono soluzioni layer 2 che elaborano transazioni off-chain e poi le riportano sulla mainnet.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Ethereum è stata la prima blockchain a introdurre gli smart contract in modo generalizzato.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Gli account normale e i contratti su Ethereum hanno entrambi una chiave privata.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: false },
+      { text: "Falso", correct: true }
+    ]
+  },
+  {
+    question: "La Ethereum Virtual Machine (EVM) esegue il bytecode degli smart contract.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Il campo “data” di una transazione può contenere il bytecode per la creazione di un contratto.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "L’aggiornamento Dencun ha introdotto i blob per ridurre i costi dei rollup.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  },
+  {
+    question: "Le librerie web3.js e ethers.js permettono di interagire con Ethereum da applicazioni JavaScript.",
+    type: "single",
+    options: [
+      { text: "Vero", correct: true },
+      { text: "Falso", correct: false }
+    ]
+  }
 ];
