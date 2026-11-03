@@ -1,727 +1,324 @@
 const questions = [
-  // LEZIONE 1
-  {
-    question: "Un indirizzo Bitcoin legacy inizia con il numero '3'.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "La proof-of-work in Bitcoin diventa sempre più facile nel tempo.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il white paper di Bitcoin è stato pubblicato da Satoshi Nakamoto nel 2008.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Bitcoin ha un limite massimo di 21 milioni di monete, tutte già state generate.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Nella crittografia asimmetrica, la stessa chiave viene usata per cifrare e decifrare.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il Lightning Network è una soluzione di secondo livello per aumentare la scalabilità di Bitcoin.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "L’attacco del 51% richiede che un singolo miner controlli più del 50% della potenza di hash della rete.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il blocco genesis di Bitcoin contiene un messaggio tratto dal quotidiano The Times.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La commissione di una transazione Bitcoin è calcolata in base all’importo trasferito.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "La tecnologia blockchain è stata progettata solo per gestire le criptovalute.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Un hardware wallet è considerato un cold wallet perché non è permanentemente connesso a Internet.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Nel sistema Bitcoin, le transazioni sono verificate da un’autorità centrale come una banca.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "L’output di una funzione hash ha lunghezza variabile a seconda dell’input.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il double spending è il tentativo di utilizzare più volte la stessa moneta digitale.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Chi possiede la chiave privata di un indirizzo Bitcoin può disporre dei fondi associati.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il Merkle Tree permette di verificare l’inclusione di una transazione in un blocco senza scaricare l’intero blocco.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Bitcoin è stato ideato da un gruppo di sviluppatori noto come Satoshi Nakamoto tra il 2008 e il 2009.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Nella rete Bitcoin tutti i nodi sono uguali e non esiste gerarchia (peer-to-peer).",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Un UTXO è un output di transazione non ancora speso.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Una transazione registrata nella blockchain Bitcoin può essere annullata da un’autorità centrale.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "L’indirizzo Bitcoin in formato Bech32 inizia con 'bc1'.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il tempo medio di generazione di un blocco in Bitcoin è di circa 10 minuti.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Un hard fork è una modifica del protocollo che non è retrocompatibile.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Bitcoin utilizza l’algoritmo di hash SHA-256 per calcolare l’impronta dei blocchi.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "I full node scaricano e verificano l’intera blockchain Bitcoin.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Le transazioni Bitcoin sono pseudonime perché gli indirizzi non sono direttamente legati all’identità reale.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Una funzione hash è facilmente invertibile, cioè dall’hash si può risalire al dato originale.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il premio per il mining di Bitcoin si dimezza ogni 4 anni circa, evento chiamato halving.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La proof-of-work è energeticamente efficiente rispetto ad altri algoritmi di consenso.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Taproot è un aggiornamento di Bitcoin che introduce le firme Schnorr e migliora la privacy.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
+    // --- 1. EVOLUZIONE DEI PARADIGMI DI CALCOLO ---
+    {
+        question: "Quali sono le caratteristiche distintive del Grid Computing rispetto ai cluster tradizionali?",
+        type: "multiple",
+        options: [
+            { text: "I nodi sono spesso geograficamente distribuiti e non si trovano necessariamente nello stesso data center.", correct: true },
+            { text: "I nodi sono strettamente accoppiati (tightly coupled) e gestiti da un singolo sistema operativo centralizzato.", correct: false },
+            { text: "I nodi sono eterogenei e scarsamente accoppiati (loosely coupled), collaborando per un obiettivo comune.", correct: true },
+            { text: "È un modello utilizzato esclusivamente per l'hosting di siti web statici.", correct: false }
+        ]
+    },
+    {
+        question: "Quali affermazioni descrivono correttamente il paradigma del Utility Computing?",
+        type: "multiple",
+        options: [
+            { text: "Si basa su un modello di business in cui le risorse informatiche sono fornite come un servizio misurato (metered service).", correct: true },
+            { text: "Richiede necessariamente che l'utente acquisti tutto l'hardware in anticipo (CapEx).", correct: false },
+            { text: "Gli utenti pagano solo per ciò che consumano, similarmente alle utenze domestiche come acqua o elettricità.", correct: true },
+            { text: "È un sinonimo esatto di Grid Computing senza alcuna differenza commerciale.", correct: false }
+        ]
+    },
+    {
+        question: "Perché l'Edge Computing è diventato fondamentale con l'avvento dell'Internet of Things (IoT)?",
+        type: "single",
+        options: [
+            { text: "Perché permette di centralizzare tutti i dati in un unico data center mondiale per ridurre i costi di gestione.", correct: false },
+            { text: "Perché elabora i dati vicino alla fonte (es. sensori), riducendo la latenza e il volume di dati da trasmettere al cloud centrale.", correct: true },
+            { text: "Perché aumenta la latenza di rete per garantire una maggiore sicurezza dei dati trasmessi.", correct: false },
+            { text: "Perché sostituisce completamente la necessità di avere server cloud o database remoti.", correct: false }
+        ]
+    },
 
-  // LEZIONE 2
-  {
-    question: "La proof-of-stake è energeticamente più efficiente della proof-of-work.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "In Italia, il Decreto Semplificazioni del 2018 ha dato valore legale agli smart contract.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Le ICO (Initial Coin Offering) sono state utilizzate per raccogliere fondi per progetti blockchain.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Zcash utilizza le zero-knowledge proof (zk-SNARK) per garantire la privacy.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il problema dei generali bizantini descrive la difficoltà di raggiungere il consenso in presenza di nodi malevoli.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "DePIN (Decentralized Physical Infrastructure Network) si riferisce a infrastrutture fisiche decentralizzate gestite tramite blockchain.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il regolamento MiCA dell’Unione Europea disciplina i mercati delle criptovalute.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Solana utilizza un algoritmo di consenso chiamato Proof of History (PoH).",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Le blockchain permissionless permettono a chiunque di inviare transazioni, mentre quelle permissioned richiedono autorizzazione.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Cardano utilizza un protocollo di consenso chiamato Ouroboros.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il modello Stock-to-Flow è stato utilizzato per prevedere il prezzo del Bitcoin.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "IOTA si basa su una struttura dati chiamata Tangle, che è un grafo aciclico orientato (DAG).",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Lo sharding è una tecnica che divide la blockchain in parti per migliorare la scalabilità.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Monero utilizza le ring signatures per offuscare l’origine delle transazioni.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Una sidechain è una blockchain indipendente collegata a una blockchain principale tramite un peg a due vie.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Polkadot mira all’interoperabilità tra diverse blockchain tramite una relay chain e parachain.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Dogecoin è nato come scherzo (memecoin) ed è un fork di Litecoin.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Algorand utilizza un meccanismo di consenso basato su sorteggio casuale dei validatori (Pure PoS).",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "L’algoritmo PBFT richiede che meno di 1/3 dei nodi sia bizantino per funzionare correttamente.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Le stablecoin come Tether mantengono il valore ancorato a una valuta fiat o a un asset.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La Proof of Authority (PoA) si basa sulla reputazione dei validatori ed è spesso usata in blockchain private.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "EOS e Cardano sono state definite “Ethereum killer” perché mirano a superare Ethereum.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "L’EBSI è l’infrastruttura europea di servizi blockchain per la pubblica amministrazione.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Litecoin utilizza un tempo di blocco di 10 minuti, come Bitcoin.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Le blockchain 1.0 sono principalmente focalizzate sugli smart contract.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Nella proof-of-stake, i validatori vengono scelti in base alla loro potenza di calcolo.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "IPFS è un sistema di archiviazione distribuita che utilizza identificatori basati sul contenuto (CID).",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La Proof of Burn richiede di consumare energia elettrica per ottenere il diritto di mining.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il problema del double spending non esiste nelle blockchain permissioned.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Le zero-knowledge proof permettono di dimostrare la conoscenza di un segreto senza rivelarlo.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
+    // --- 2. CLOUD INFRASTRUCTURES & DELIVERY MODELS ---
+    {
+        question: "Quali responsabilità ricadono tipicamente sul 'Cloud Provider' secondo il modello di riferimento NIST?",
+        type: "multiple",
+        options: [
+            { text: "Acquisire e gestire l'infrastruttura fisica di calcolo sottostante.", correct: true },
+            { text: "Eseguire il software cloud che fornisce i servizi ai consumatori.", correct: true },
+            { text: "Definire le policy di accesso ai dati interni dell'azienda cliente.", correct: false },
+            { text: "Gestire l'utilizzo finale dell'applicazione da parte degli utenti del cliente.", correct: false }
+        ]
+    },
+    {
+        question: "Nel modello IaaS (Infrastructure as a Service), quali componenti sono gestiti dall'utente (Cloud Consumer)?",
+        type: "multiple",
+        options: [
+            { text: "Il sistema operativo, inclusi aggiornamenti e patch di sicurezza.", correct: true },
+            { text: "Le applicazioni distribuite e i relativi dati.", correct: true },
+            { text: "L'hardware fisico dei server e lo storage a livello fisico.", correct: false },
+            { text: "L'hypervisor che gestisce la virtualizzazione dell'hardware.", correct: false }
+        ]
+    },
+    {
+        question: "Quali caratteristiche definiscono il modello SaaS (Software as a Service)?",
+        type: "multiple",
+        options: [
+            { text: "L'applicazione è interamente gestita dal provider e accessibile via rete (solitamente web).", correct: true },
+            { text: "L'utente non ha controllo sull'infrastruttura sottostante né sulle capacità applicative individuali.", correct: true },
+            { text: "L'utente deve installare manualmente il software su ogni macchina locale.", correct: false },
+            { text: "È il modello ideale per sviluppare applicazioni personalizzate partendo dal sistema operativo.", correct: false }
+        ]
+    },
+    {
+        question: "In quale scenario l'utilizzo di un Hybrid Cloud è particolarmente vantaggioso?",
+        type: "single",
+        options: [
+            { text: "Quando un'azienda vuole eliminare completamente il proprio dipartimento IT.", correct: false },
+            { text: "Quando si desidera mantenere i dati sensibili in un'infrastruttura privata locale (on-premise) sfruttando il cloud pubblico per la potenza di calcolo scalabile.", correct: true },
+            { text: "Quando l'azienda non ha alcuna connettività internet affidabile.", correct: false },
+            { text: "Quando si vuole utilizzare un solo provider per evitare complessità contrattuali.", correct: false }
+        ]
+    },
+    {
+        question: "Qual è il ruolo del 'Cloud Broker'?",
+        type: "single",
+        options: [
+            { text: "È l'entità che possiede fisicamente i data center.", correct: false },
+            { text: "È un intermediario che gestisce l'uso, le prestazioni e la consegna dei servizi cloud, negoziando tra provider e consumatori.", correct: true },
+            { text: "È responsabile della manutenzione hardware dei server.", correct: false },
+            { text: "È un ente governativo che certifica la sicurezza del cloud.", correct: false }
+        ]
+    },
 
-  // LEZIONE 3
-  {
-    question: "Il checksum degli indirizzi Ethereum utilizza l’hash SHA3 e le maiuscole/minuscole.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Lo standard ERC-20 definisce i token non fungibili (NFT).",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "La base fee nelle transazioni Ethereum viene bruciata (distrutta) dopo l’EIP-1559.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "In Ethereum, le transazioni possono avere più input e più output come in Bitcoin.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il tempo medio di blocco su Ethereum è di circa 12 secondi.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Ethereum ha un limite massimo di 21 milioni di Ether.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "L’aggiornamento Shanghai ha permesso agli staker di prelevare i propri ETH bloccati.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Una DAO è un’organizzazione gestita da smart contract senza una gerarchia tradizionale.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Le testnet come Sepolia permettono di testare contratti usando Ether fittizio.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "I validatori in Ethereum 2.0 devono depositare almeno 32 ETH per diventare validatori.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il gas price è stabilito solo dall’utente e non varia dinamicamente.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Un NFT è un token unico e non intercambiabile.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La finalizzazione di un blocco su Ethereum 2.0 avviene immediatamente dopo la sua creazione.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Le DApp sono applicazioni che combinano componenti on-chain e off-chain.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "In Ethereum, la lettura dello stato di uno smart contract (call) richiede sempre il pagamento del gas.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Il termine “The Merge” si riferisce all’unione della beacon chain (PoS) con la mainnet.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "I blob introdotti con l’aggiornamento Dencun vengono conservati permanentemente sulla blockchain.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Lo slashing in Ethereum 2.0 comporta la perdita dello stake in caso di comportamento malevolo.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La moneta nativa di Ethereum si chiama Ether e il suo simbolo è ETH.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "L’attacco alla DAO del 2016 ha portato alla creazione di Ethereum Classic.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "La proof-of-stake di Ethereum elimina completamente la necessità di un meccanismo di consenso.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "Gli smart contract su Ethereum sono immutabili una volta deployati.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il gas è l’unità di misura del costo computazionale di una transazione o di uno smart contract.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "I rollup sono soluzioni layer 2 che elaborano transazioni off-chain e poi le riportano sulla mainnet.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Ethereum è stata la prima blockchain a introdurre gli smart contract in modo generalizzato.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Gli account normale e i contratti su Ethereum hanno entrambi una chiave privata.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: false },
-      { text: "Falso", correct: true }
-    ]
-  },
-  {
-    question: "La Ethereum Virtual Machine (EVM) esegue il bytecode degli smart contract.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Il campo “data” di una transazione può contenere il bytecode per la creazione di un contratto.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "L’aggiornamento Dencun ha introdotto i blob per ridurre i costi dei rollup.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  },
-  {
-    question: "Le librerie web3.js e ethers.js permettono di interagire con Ethereum da applicazioni JavaScript.",
-    type: "single",
-    options: [
-      { text: "Vero", correct: true },
-      { text: "Falso", correct: false }
-    ]
-  }
-];
+    // --- 3. VIRTUALIZZAZIONE ---
+    {
+        question: "Quali sono i vantaggi principali derivanti dall'utilizzo della virtualizzazione (Macchine Virtuali)?",
+        type: "multiple",
+        options: [
+            { text: "Consolidamento dei server, permettendo a più workload di girare sullo stesso hardware fisico.", correct: true },
+            { text: "Isolamento delle risorse, garantendo che un problema su una VM non impatti direttamente le altre.", correct: true },
+            { text: "Eliminazione totale della necessità di avere un sistema operativo.", correct: false },
+            { text: "Accesso diretto all'hardware senza alcun overhead prestazionale.", correct: false }
+        ]
+    },
+    {
+        question: "Cosa distingue un Hypervisor di Tipo 1 (Bare-Metal) da uno di Tipo 2 (Hosted)?",
+        type: "single",
+        options: [
+            { text: "Il Tipo 1 gira direttamente sull'hardware per massimizzare le prestazioni, mentre il Tipo 2 gira sopra un sistema operativo ospite.", correct: true },
+            { text: "Il Tipo 1 è usato solo per scopi di test, mentre il Tipo 2 è usato nei data center di produzione.", correct: false },
+            { text: "Il Tipo 2 non supporta l'esecuzione di sistemi operativi Windows.", correct: false },
+            { text: "Non ci sono differenze tecniche, è solo una distinzione commerciale.", correct: false }
+        ]
+    },
+    {
+        question: "Cos'è un VMBR (Virtual-Machine Based Rootkit) e perché è pericoloso?",
+        type: "single",
+        options: [
+            { text: "È un tool di amministrazione legittimo per recuperare password perse.", correct: false },
+            { text: "È un malware che si inserisce tra l'hardware e il sistema operativo, ottenendo il controllo totale e rimanendo invisibile al sistema ospite.", correct: true },
+            { text: "È un virus che colpisce solo i file di testo all'interno di una VM.", correct: false },
+            { text: "È un componente hardware difettoso che rallenta la CPU.", correct: false }
+        ]
+    },
+
+    // --- 4. CONTAINERIZZAZIONE & DOCKER ---
+    {
+        question: "Quali affermazioni descrivono correttamente la differenza tra Container e Macchine Virtuali (VM)?",
+        type: "multiple",
+        options: [
+            { text: "I container condividono il kernel del sistema operativo host, rendendoli più leggeri delle VM.", correct: true },
+            { text: "Le VM includono un intero sistema operativo guest, occupando più risorse (RAM/CPU).", correct: true },
+            { text: "I container offrono un isolamento hardware completo superiore alle VM.", correct: false },
+            { text: "Le VM si avviano istantaneamente, mentre i container richiedono minuti per il boot.", correct: false }
+        ]
+    },
+    {
+        question: "Quali sono i vantaggi principali dell'utilizzo di Docker?",
+        type: "multiple",
+        options: [
+            { text: "Portabilità: un container funziona allo stesso modo su qualsiasi ambiente che supporti Docker.", correct: true },
+            { text: "Efficienza: riduce l'overhead di risorse rispetto alla virtualizzazione hardware completa.", correct: true },
+            { text: "Persistenza implicita: i dati nei container sono salvati automaticamente per sempre senza configurazioni.", correct: false },
+            { text: "Eliminazione della necessità di testare il software.", correct: false }
+        ]
+    },
+    {
+        question: "Quali sono le limitazioni di Docker Compose rispetto a un orchestratore completo?",
+        type: "multiple",
+        options: [
+            { text: "Non gestisce nativamente il failover automatico o il ripristino dei nodi in caso di guasto.", correct: true },
+            { text: "Non è progettato per gestire il bilanciamento del carico su cluster di grandi dimensioni distribuiti.", correct: true },
+            { text: "Non permette di definire variabili d'ambiente.", correct: false },
+            { text: "Non supporta la definizione di più container in un singolo file.", correct: false }
+        ]
+    },
+
+    // --- 5. ORCHESTRAZIONE & KUBERNETES ---
+    {
+        question: "Quali compiti svolge un sistema di orchestrazione dei container come Kubernetes?",
+        type: "multiple",
+        options: [
+            { text: "Scheduling automatico dei container sui nodi disponibili in base alle risorse.", correct: true },
+            { text: "Gestione del self-healing, riavviando i container falliti o sostituendo i nodi guasti.", correct: true },
+            { text: "Scrittura automatica del codice dell'applicazione.", correct: false },
+            { text: "Gestione fisica dell'alimentazione elettrica dei server.", correct: false }
+        ]
+    },
+    {
+        question: "Qual è la funzione del componente 'etcd' nell'architettura di Kubernetes?",
+        type: "single",
+        options: [
+            { text: "È il motore di containerizzazione che sostituisce Docker.", correct: false },
+            { text: "È uno store key-value distribuito e persistente che conserva lo stato e la configurazione dell'intero cluster.", correct: true },
+            { text: "È il componente che espone l'interfaccia grafica per gli utenti.", correct: false },
+            { text: "È il load balancer che distribuisce il traffico internet.", correct: false }
+        ]
+    },
+    {
+        question: "Cosa rappresenta un 'Pod' in Kubernetes?",
+        type: "single",
+        options: [
+            { text: "Un singolo server fisico nel data center.", correct: false },
+            { text: "L'unità base di scheduling che raggruppa uno o più container che condividono risorse (rete, storage).", correct: true },
+            { text: "Un database relazionale gestito da Kubernetes.", correct: false },
+            { text: "Un firewall virtuale.", correct: false }
+        ]
+    },
+    {
+        question: "Quali sono le responsabilità del 'Kubelet' su un nodo worker?",
+        type: "multiple",
+        options: [
+            { text: "Comunicare con il control plane per ricevere istruzioni.", correct: true },
+            { text: "Assicurarsi che i container descritti nel PodSpec stiano effettivamente girando e siano in salute.", correct: true },
+            { text: "Decidere su quale nodo del cluster posizionare un nuovo Pod.", correct: false },
+            { text: "Gestire il database etcd.", correct: false }
+        ]
+    },
+
+    // --- 6. MICROSERVIZI & ARCHITETTURA ---
+    {
+        question: "Quali problemi dell'architettura monolitica vengono risolti dai microservizi?",
+        type: "multiple",
+        options: [
+            { text: "La difficoltà di scalare singole funzionalità in modo indipendente.", correct: true },
+            { text: "L'obbligo di utilizzare un unico stack tecnologico/linguaggio per l'intera applicazione.", correct: true },
+            { text: "La complessità eccessiva del deployment, dove un piccolo cambiamento richiede il rilascio dell'intero sistema.", correct: true },
+            { text: "La latenza di rete tra i componenti interni (che nei monoliti è inesistente).", correct: false }
+        ]
+    },
+    {
+        question: "Cosa afferma la Legge di Conway riguardo alla progettazione del software?",
+        type: "single",
+        options: [
+            { text: "Il software si espande fino a riempire tutta la memoria disponibile.", correct: false },
+            { text: "Le organizzazioni progettano sistemi che sono copie delle loro strutture di comunicazione interne.", correct: true },
+            { text: "Ogni microservizio deve avere meno di 100 righe di codice.", correct: false },
+            { text: "La velocità di calcolo raddoppia ogni 18 mesi.", correct: false }
+        ]
+    },
+    {
+        question: "Quali sono alcuni dei principi della '12-Factor App' per le applicazioni cloud-native?",
+        type: "multiple",
+        options: [
+            { text: "Codebase unica tracciata con controllo di versione.", correct: true },
+            { text: "Gestione delle dipendenze esplicita e isolata.", correct: true },
+            { text: "Parità tra ambienti di sviluppo, staging e produzione (Dev/Prod parity).", correct: true },
+            { text: "Configurazioni hard-coded direttamente nel codice sorgente.", correct: false }
+        ]
+    },
+    {
+        question: "Come viene gestita la persistenza dei dati in un'architettura a microservizi ideale?",
+        type: "single",
+        options: [
+            { text: "Tutti i microservizi scrivono su un unico database gigante condiviso.", correct: false },
+            { text: "Ogni microservizio possiede e gestisce il proprio database in modo esclusivo (Decentralization of data).", correct: true },
+            { text: "I dati vengono salvati solo nella memoria volatile per velocità.", correct: false },
+            { text: "Si utilizzano solo file di testo condivisi via FTP.", correct: false }
+        ]
+    },
+
+    // --- 7. CLOUD OPERATIONS (DevOps, IaC, FinOps) ---
+    {
+        question: "Cosa si intende per Infrastructure as Code (IaC)?",
+        type: "single",
+        options: [
+            { text: "L'uso di hardware fisico dedicato per scrivere codice.", correct: false },
+            { text: "La gestione e il provisioning dell'infrastruttura tramite file di definizione leggibili dalla macchina (codice) invece che configurazione manuale.", correct: true },
+            { text: "La pratica di scrivere documentazione cartacea per i server.", correct: false },
+            { text: "Un linguaggio di programmazione per creare interfacce grafiche.", correct: false }
+        ]
+    },
+    {
+        question: "Qual è la differenza tra l'approccio 'Dichiarativo' e 'Imperativo' nell'IaC?",
+        type: "single",
+        options: [
+            { text: "Non c'è differenza, sono sinonimi.", correct: false },
+            { text: "L'imperativo definisce 'cosa' vuoi ottenere (stato finale), il dichiarativo definisce 'come' ottenerlo (passaggi).", correct: false },
+            { text: "Il dichiarativo definisce lo stato finale desiderato e il tool calcola come raggiungerlo; l'imperativo elenca i passaggi esatti da eseguire.", correct: true },
+            { text: "Il dichiarativo funziona solo su AWS, l'imperativo solo su Azure.", correct: false }
+        ]
+    },
+    {
+        question: "Quali sono i vantaggi dell'adozione delle pratiche DevOps?",
+        type: "multiple",
+        options: [
+            { text: "Rottura dei silos tra i team di sviluppo (Dev) e quelli operativi (Ops).", correct: true },
+            { text: "Automazione dei processi di test, integrazione e rilascio (CI/CD).", correct: true },
+            { text: "Rilascio di software più frequente e affidabile.", correct: true },
+            { text: "Aumento della burocrazia e dei tempi di approvazione manuale.", correct: false }
+        ]
+    },
+    {
+        question: "Cosa significa 'Continuous Integration' (CI)?",
+        type: "single",
+        options: [
+            { text: "Rilasciare il software in produzione una volta l'anno.", correct: false },
+            { text: "La pratica in cui gli sviluppatori uniscono frequentemente le modifiche al codice in un repository centrale, innescando build e test automatici.", correct: true },
+            { text: "L'installazione manuale degli aggiornamenti sui server dei clienti.", correct: false },
+            { text: "La collaborazione tra il reparto vendite e quello marketing.", correct: false }
+        ]
+    },
+    {
+        question: "Qual è l'obiettivo principale del dominio 'FinOps' nelle Cloud Operations?",
+        type: "single",
+        options: [
+            { text: "Massimizzare la spesa per ottenere sconti dai provider.", correct: false },
+            { text: "Portare la responsabilità finanziaria nelle decisioni ingegneristiche per allineare la spesa cloud al valore di business.", correct: true },
+            { text: "Gestire esclusivamente gli stipendi del personale IT.", correct: false },
+            { text: "Evitare l'uso del cloud per risparmiare denaro.", correct: false }
+        ]
+    },
+    {
+        question: "Cosa si intende per 'Observability' in un sistema distribuito?",
+        type: "single",
+        options: [
+            { text: "Avere delle telecamere di sicurezza nel data center.", correct: false },
+            { text: "La capacità di capire lo stato interno di un sistema basandosi sui dati che produce (log, metriche, tracce) per identificare e risolvere problemi.", correct: true },
+            { text: "La capacità di osservare gli utenti mentre usano l'applicazione.", correct: false },
+            { text: "Un tool che riavvia automaticamente i server.", correct: false }
+        ]
+    },
+
+    // --- 8. CYBERSECURITY FUNDAMENTALS ---
+    {
+        question: "Quali sono i tre pilastri della triade CIA nella sicurezza informatica?",
+        type: "multiple",
+        options: [
+            { text: "Confidentiality (Riservatezza): i dati sono accessibili solo a chi è autorizzato.", correct: true },
+            { text: "Integrity (Integrità): i dati non vengono alterati in modo non autorizzato.", correct: true },
+            { text: "Availability (Disponibilità): i sistemi sono accessibili quando necessario.", correct: true },
+            { text: "Anonymity (Anonimato): l'identità dell'utente non è mai tracciabile.", correct: false }
+        ]
+    },
+    {
+        question: "Che tipo di attacco è un 'Man-in-the-Middle' (MITM)?",
+        type: "single",
+        options: [
+            { text: "Un attacco in cui un malintenzionato si interpone segretamente tra due parti che comunicano, intercettando o alterando i dati.", correct: true },
+            { text: "Un attacco che mira a sovraccaricare un server con troppe richieste.", correct: false },
+            { text: "Un tentativo di indovinare la password provando tutte le combinazioni.", correct: false },
+            { text: "Un virus che cancella i file dal disco rigido.", correct: false }
+        ]
+    },
+    {
+        question: "Cosa si intende per 'Social Engineering' (Ingegneria Sociale)?",
+        type: "single",
+        options: [
+            { text: "La progettazione di social network sicuri.", correct: false },
+            { text: "L'arte di manipolare le persone affinché compiano azioni o divulghino informazioni riservate (es. Phishing).", correct: true },
+            { text: "L'uso di algoritmi complessi per decifrare password.", correct: false },
+    
