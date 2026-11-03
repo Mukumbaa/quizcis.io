@@ -1,8 +1,7 @@
 
 const questions = [  
   {
-    question: "Nel modello IaaS (Infrastructure as Service), quali elementi sono gestiti dal
-    Provider?", 
+    question: "Nel modello IaaS (Infrastructure as Service), quali elementi sono gestiti dal Provider?", 
     type: "multiple",
     options: [ 
       { text: "Networking e Storage",correct: true }, 
