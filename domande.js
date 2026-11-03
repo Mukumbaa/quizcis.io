@@ -1,324 +1,245 @@
 const questions = [
-    // --- 1. EVOLUZIONE DEI PARADIGMI DI CALCOLO ---
+    // --- EVOLUZIONE DEI PARADIGMI ---
     {
-        question: "Quali sono le caratteristiche distintive del Grid Computing rispetto ai cluster tradizionali?",
-        type: "multiple",
-        options: [
-            { text: "I nodi sono spesso geograficamente distribuiti e non si trovano necessariamente nello stesso data center.", correct: true },
-            { text: "I nodi sono strettamente accoppiati (tightly coupled) e gestiti da un singolo sistema operativo centralizzato.", correct: false },
-            { text: "I nodi sono eterogenei e scarsamente accoppiati (loosely coupled), collaborando per un obiettivo comune.", correct: true },
-            { text: "È un modello utilizzato esclusivamente per l'hosting di siti web statici.", correct: false }
-        ]
-    },
-    {
-        question: "Quali affermazioni descrivono correttamente il paradigma del Utility Computing?",
-        type: "multiple",
-        options: [
-            { text: "Si basa su un modello di business in cui le risorse informatiche sono fornite come un servizio misurato (metered service).", correct: true },
-            { text: "Richiede necessariamente che l'utente acquisti tutto l'hardware in anticipo (CapEx).", correct: false },
-            { text: "Gli utenti pagano solo per ciò che consumano, similarmente alle utenze domestiche come acqua o elettricità.", correct: true },
-            { text: "È un sinonimo esatto di Grid Computing senza alcuna differenza commerciale.", correct: false }
-        ]
-    },
-    {
-        question: "Perché l'Edge Computing è diventato fondamentale con l'avvento dell'Internet of Things (IoT)?",
+        question: "Quale paradigma di calcolo è caratterizzato dall'essere 'metered' (misurato) come una comune utenza (acqua, elettricità)?",
         type: "single",
         options: [
-            { text: "Perché permette di centralizzare tutti i dati in un unico data center mondiale per ridurre i costi di gestione.", correct: false },
-            { text: "Perché elabora i dati vicino alla fonte (es. sensori), riducendo la latenza e il volume di dati da trasmettere al cloud centrale.", correct: true },
-            { text: "Perché aumenta la latenza di rete per garantire una maggiore sicurezza dei dati trasmessi.", correct: false },
-            { text: "Perché sostituisce completamente la necessità di avere server cloud o database remoti.", correct: false }
+            { text: "Grid Computing", correct: false },
+            { text: "Utility Computing", correct: true },
+            { text: "Mainframe Computing", correct: false },
+            { text: "Green Computing", correct: false }
+        ]
+    },
+    {
+        question: "Che differenza c'è tra Edge Computing e Fog Computing?",
+        type: "single",
+        options: [
+            { text: "Sono sinonimi", correct: false },
+            { text: "L'Edge elabora i dati sul dispositivo o molto vicino, il Fog agisce come strato intermedio distribuito (es. router/gateway)", correct: true },
+            { text: "Il Fog Computing non supporta l'IoT", correct: false },
+            { text: "L'Edge Computing si basa esclusivamente su server centralizzati", correct: false }
         ]
     },
 
-    // --- 2. CLOUD INFRASTRUCTURES & DELIVERY MODELS ---
+    // --- INFRASTRUTTURE E SERVIZI CLOUD ---
     {
-        question: "Quali responsabilità ricadono tipicamente sul 'Cloud Provider' secondo il modello di riferimento NIST?",
+        question: "Secondo il modello NIST, quali sono attori ufficiali del Cloud Computing?",
         type: "multiple",
         options: [
-            { text: "Acquisire e gestire l'infrastruttura fisica di calcolo sottostante.", correct: true },
-            { text: "Eseguire il software cloud che fornisce i servizi ai consumatori.", correct: true },
-            { text: "Definire le policy di accesso ai dati interni dell'azienda cliente.", correct: false },
-            { text: "Gestire l'utilizzo finale dell'applicazione da parte degli utenti del cliente.", correct: false }
+            { text: "Cloud Provider", correct: true },
+            { text: "Cloud Broker", correct: true },
+            { text: "Cloud Auditor", correct: true },
+            { text: "Cloud Hacker", correct: false }
         ]
     },
     {
-        question: "Nel modello IaaS (Infrastructure as a Service), quali componenti sono gestiti dall'utente (Cloud Consumer)?",
-        type: "multiple",
-        options: [
-            { text: "Il sistema operativo, inclusi aggiornamenti e patch di sicurezza.", correct: true },
-            { text: "Le applicazioni distribuite e i relativi dati.", correct: true },
-            { text: "L'hardware fisico dei server e lo storage a livello fisico.", correct: false },
-            { text: "L'hypervisor che gestisce la virtualizzazione dell'hardware.", correct: false }
-        ]
-    },
-    {
-        question: "Quali caratteristiche definiscono il modello SaaS (Software as a Service)?",
-        type: "multiple",
-        options: [
-            { text: "L'applicazione è interamente gestita dal provider e accessibile via rete (solitamente web).", correct: true },
-            { text: "L'utente non ha controllo sull'infrastruttura sottostante né sulle capacità applicative individuali.", correct: true },
-            { text: "L'utente deve installare manualmente il software su ogni macchina locale.", correct: false },
-            { text: "È il modello ideale per sviluppare applicazioni personalizzate partendo dal sistema operativo.", correct: false }
-        ]
-    },
-    {
-        question: "In quale scenario l'utilizzo di un Hybrid Cloud è particolarmente vantaggioso?",
+        question: "Nel modello di responsabilità condivisa per il SaaS, di cosa è responsabile il consumatore?",
         type: "single",
         options: [
-            { text: "Quando un'azienda vuole eliminare completamente il proprio dipartimento IT.", correct: false },
-            { text: "Quando si desidera mantenere i dati sensibili in un'infrastruttura privata locale (on-premise) sfruttando il cloud pubblico per la potenza di calcolo scalabile.", correct: true },
-            { text: "Quando l'azienda non ha alcuna connettività internet affidabile.", correct: false },
-            { text: "Quando si vuole utilizzare un solo provider per evitare complessità contrattuali.", correct: false }
+            { text: "Della gestione del sistema operativo", correct: false },
+            { text: "Della sicurezza fisica del data center", correct: false },
+            { text: "Della configurazione dei propri dati e degli accessi utente", correct: true },
+            { text: "Dell'aggiornamento dell'applicazione", correct: false }
         ]
     },
     {
-        question: "Qual è il ruolo del 'Cloud Broker'?",
+        question: "Quale tipo di Cloud prevede un'infrastruttura condivisa tra diverse organizzazioni con interessi o missioni comuni?",
         type: "single",
         options: [
-            { text: "È l'entità che possiede fisicamente i data center.", correct: false },
-            { text: "È un intermediario che gestisce l'uso, le prestazioni e la consegna dei servizi cloud, negoziando tra provider e consumatori.", correct: true },
-            { text: "È responsabile della manutenzione hardware dei server.", correct: false },
-            { text: "È un ente governativo che certifica la sicurezza del cloud.", correct: false }
+            { text: "Public Cloud", correct: false },
+            { text: "Private Cloud", correct: false },
+            { text: "Community Cloud", correct: true },
+            { text: "Hybrid Cloud", correct: false }
         ]
     },
 
-    // --- 3. VIRTUALIZZAZIONE ---
+    // --- VIRTUALIZZAZIONE ---
     {
-        question: "Quali sono i vantaggi principali derivanti dall'utilizzo della virtualizzazione (Macchine Virtuali)?",
+        question: "Qual è la differenza principale tra un Hypervisor di Tipo 1 e uno di Tipo 2?",
+        type: "single",
+        options: [
+            { text: "Il Tipo 1 gira sopra un sistema operativo host, il Tipo 2 gira direttamente sull'hardware", correct: false },
+            { text: "Il Tipo 1 (Bare-metal) gira direttamente sull'hardware, il Tipo 2 (Hosted) gira sopra un sistema operativo", correct: true },
+            { text: "Il Tipo 2 è più veloce del Tipo 1", correct: false },
+            { text: "Non esiste differenza, è solo marketing", correct: false }
+        ]
+    },
+    {
+        question: "Quali sono i vantaggi della virtualizzazione?",
         type: "multiple",
         options: [
-            { text: "Consolidamento dei server, permettendo a più workload di girare sullo stesso hardware fisico.", correct: true },
-            { text: "Isolamento delle risorse, garantendo che un problema su una VM non impatti direttamente le altre.", correct: true },
-            { text: "Eliminazione totale della necessità di avere un sistema operativo.", correct: false },
-            { text: "Accesso diretto all'hardware senza alcun overhead prestazionale.", correct: false }
+            { text: "Migliore utilizzo delle risorse hardware (consolidamento)", correct: true },
+            { text: "Possibilità di migrare le macchine virtuali live", correct: true },
+            { text: "Isolamento tra diverse applicazioni e sistemi operativi", correct: true },
+            { text: "Eliminazione totale della necessità di hardware fisico", correct: false }
         ]
     },
     {
-        question: "Cosa distingue un Hypervisor di Tipo 1 (Bare-Metal) da uno di Tipo 2 (Hosted)?",
+        question: "Cosa si intende per VMBR (Virtual-Machine Based Rootkit)?",
         type: "single",
         options: [
-            { text: "Il Tipo 1 gira direttamente sull'hardware per massimizzare le prestazioni, mentre il Tipo 2 gira sopra un sistema operativo ospite.", correct: true },
-            { text: "Il Tipo 1 è usato solo per scopi di test, mentre il Tipo 2 è usato nei data center di produzione.", correct: false },
-            { text: "Il Tipo 2 non supporta l'esecuzione di sistemi operativi Windows.", correct: false },
-            { text: "Non ci sono differenze tecniche, è solo una distinzione commerciale.", correct: false }
-        ]
-    },
-    {
-        question: "Cos'è un VMBR (Virtual-Machine Based Rootkit) e perché è pericoloso?",
-        type: "single",
-        options: [
-            { text: "È un tool di amministrazione legittimo per recuperare password perse.", correct: false },
-            { text: "È un malware che si inserisce tra l'hardware e il sistema operativo, ottenendo il controllo totale e rimanendo invisibile al sistema ospite.", correct: true },
-            { text: "È un virus che colpisce solo i file di testo all'interno di una VM.", correct: false },
-            { text: "È un componente hardware difettoso che rallenta la CPU.", correct: false }
+            { text: "Un tool per il backup delle VM", correct: false },
+            { text: "Un malware che si inserisce sotto il sistema operativo o sotto l'hypervisor legittimo, rendendosi invisibile", correct: true },
+            { text: "Un tipo di container sicuro", correct: false },
+            { text: "Un sistema di gestione delle licenze", correct: false }
         ]
     },
 
-    // --- 4. CONTAINERIZZAZIONE & DOCKER ---
+    // --- CONTAINERIZZAZIONE E KUBERNETES ---
     {
-        question: "Quali affermazioni descrivono correttamente la differenza tra Container e Macchine Virtuali (VM)?",
-        type: "multiple",
+        question: "In cosa differisce un Container da una Macchina Virtuale?",
+        type: "single",
         options: [
-            { text: "I container condividono il kernel del sistema operativo host, rendendoli più leggeri delle VM.", correct: true },
-            { text: "Le VM includono un intero sistema operativo guest, occupando più risorse (RAM/CPU).", correct: true },
-            { text: "I container offrono un isolamento hardware completo superiore alle VM.", correct: false },
-            { text: "Le VM si avviano istantaneamente, mentre i container richiedono minuti per il boot.", correct: false }
+            { text: "Il container virtualizza l'hardware, la VM virtualizza il SO", correct: false },
+            { text: "Il container virtualizza il livello del sistema operativo (condivide il kernel), la VM virtualizza l'hardware", correct: true },
+            { text: "I container sono più lenti all'avvio", correct: false },
+            { text: "Le VM non offrono isolamento", correct: false }
         ]
     },
     {
-        question: "Quali sono i vantaggi principali dell'utilizzo di Docker?",
-        type: "multiple",
+        question: "Cos'è un Pod in Kubernetes?",
+        type: "single",
         options: [
-            { text: "Portabilità: un container funziona allo stesso modo su qualsiasi ambiente che supporti Docker.", correct: true },
-            { text: "Efficienza: riduce l'overhead di risorse rispetto alla virtualizzazione hardware completa.", correct: true },
-            { text: "Persistenza implicita: i dati nei container sono salvati automaticamente per sempre senza configurazioni.", correct: false },
-            { text: "Eliminazione della necessità di testare il software.", correct: false }
+            { text: "Un server fisico", correct: false },
+            { text: "L'unità di scheduling base che contiene uno o più container co-locati", correct: true },
+            { text: "Il database di configurazione", correct: false },
+            { text: "Un servizio di load balancing", correct: false }
         ]
     },
     {
-        question: "Quali sono le limitazioni di Docker Compose rispetto a un orchestratore completo?",
-        type: "multiple",
+        question: "Qual è la funzione di 'etcd' in un cluster Kubernetes?",
+        type: "single",
         options: [
-            { text: "Non gestisce nativamente il failover automatico o il ripristino dei nodi in caso di guasto.", correct: true },
-            { text: "Non è progettato per gestire il bilanciamento del carico su cluster di grandi dimensioni distribuiti.", correct: true },
-            { text: "Non permette di definire variabili d'ambiente.", correct: false },
-            { text: "Non supporta la definizione di più container in un singolo file.", correct: false }
+            { text: "Eseguire i container sui nodi worker", correct: false },
+            { text: "Gestire il traffico di rete come proxy", correct: false },
+            { text: "Fungere da store key-value distribuito per salvare lo stato e la configurazione del cluster", correct: true },
+            { text: "Monitorare le risorse hardware", correct: false }
+        ]
+    },
+    {
+        question: "In Kubernetes, come si chiama l'agente che gira su ogni nodo worker e comunica con il control plane?",
+        type: "single",
+        options: [
+            { text: "Kube-proxy", correct: false },
+            { text: "Kubelet", correct: true },
+            { text: "Scheduler", correct: false },
+            { text: "Controller Manager", correct: false }
         ]
     },
 
-    // --- 5. ORCHESTRAZIONE & KUBERNETES ---
+    // --- MICROSERVIZI ---
     {
-        question: "Quali compiti svolge un sistema di orchestrazione dei container come Kubernetes?",
-        type: "multiple",
-        options: [
-            { text: "Scheduling automatico dei container sui nodi disponibili in base alle risorse.", correct: true },
-            { text: "Gestione del self-healing, riavviando i container falliti o sostituendo i nodi guasti.", correct: true },
-            { text: "Scrittura automatica del codice dell'applicazione.", correct: false },
-            { text: "Gestione fisica dell'alimentazione elettrica dei server.", correct: false }
-        ]
-    },
-    {
-        question: "Qual è la funzione del componente 'etcd' nell'architettura di Kubernetes?",
+        question: "Qual è uno dei principali vantaggi dell'architettura a Microservizi rispetto a quella Monolitica?",
         type: "single",
         options: [
-            { text: "È il motore di containerizzazione che sostituisce Docker.", correct: false },
-            { text: "È uno store key-value distribuito e persistente che conserva lo stato e la configurazione dell'intero cluster.", correct: true },
-            { text: "È il componente che espone l'interfaccia grafica per gli utenti.", correct: false },
-            { text: "È il load balancer che distribuisce il traffico internet.", correct: false }
+            { text: "Semplicità di deployment iniziale", correct: false },
+            { text: "Scalabilità indipendente dei singoli componenti e diversità tecnologica", correct: true },
+            { text: "Minore latenza di rete", correct: false },
+            { text: "Transazioni ACID più semplici da gestire", correct: false }
         ]
     },
     {
-        question: "Cosa rappresenta un 'Pod' in Kubernetes?",
+        question: "Cosa afferma la Legge di Conway?",
         type: "single",
         options: [
-            { text: "Un singolo server fisico nel data center.", correct: false },
-            { text: "L'unità base di scheduling che raggruppa uno o più container che condividono risorse (rete, storage).", correct: true },
-            { text: "Un database relazionale gestito da Kubernetes.", correct: false },
-            { text: "Un firewall virtuale.", correct: false }
+            { text: "La potenza di calcolo raddoppia ogni 18 mesi", correct: false },
+            { text: "Le organizzazioni progettano sistemi che sono copie delle loro strutture di comunicazione interne", correct: true },
+            { text: "Ogni microservizio deve avere il proprio database", correct: false },
+            { text: "Il software si espande fino a occupare tutta la memoria disponibile", correct: false }
         ]
     },
     {
-        question: "Quali sono le responsabilità del 'Kubelet' su un nodo worker?",
+        question: "Quali dei seguenti sono principi della '12-Factor App'?",
         type: "multiple",
         options: [
-            { text: "Comunicare con il control plane per ricevere istruzioni.", correct: true },
-            { text: "Assicurarsi che i container descritti nel PodSpec stiano effettivamente girando e siano in salute.", correct: true },
-            { text: "Decidere su quale nodo del cluster posizionare un nuovo Pod.", correct: false },
-            { text: "Gestire il database etcd.", correct: false }
+            { text: "Codebase (una singola codebase tracciata in revision control)", correct: true },
+            { text: "Dev/Prod Parity (mantenere ambienti simili)", correct: true },
+            { text: "Logs (trattare i log come flussi di eventi)", correct: true },
+            { text: "Hard-coding delle configurazioni", correct: false }
         ]
     },
 
-    // --- 6. MICROSERVIZI & ARCHITETTURA ---
-    {
-        question: "Quali problemi dell'architettura monolitica vengono risolti dai microservizi?",
-        type: "multiple",
-        options: [
-            { text: "La difficoltà di scalare singole funzionalità in modo indipendente.", correct: true },
-            { text: "L'obbligo di utilizzare un unico stack tecnologico/linguaggio per l'intera applicazione.", correct: true },
-            { text: "La complessità eccessiva del deployment, dove un piccolo cambiamento richiede il rilascio dell'intero sistema.", correct: true },
-            { text: "La latenza di rete tra i componenti interni (che nei monoliti è inesistente).", correct: false }
-        ]
-    },
-    {
-        question: "Cosa afferma la Legge di Conway riguardo alla progettazione del software?",
-        type: "single",
-        options: [
-            { text: "Il software si espande fino a riempire tutta la memoria disponibile.", correct: false },
-            { text: "Le organizzazioni progettano sistemi che sono copie delle loro strutture di comunicazione interne.", correct: true },
-            { text: "Ogni microservizio deve avere meno di 100 righe di codice.", correct: false },
-            { text: "La velocità di calcolo raddoppia ogni 18 mesi.", correct: false }
-        ]
-    },
-    {
-        question: "Quali sono alcuni dei principi della '12-Factor App' per le applicazioni cloud-native?",
-        type: "multiple",
-        options: [
-            { text: "Codebase unica tracciata con controllo di versione.", correct: true },
-            { text: "Gestione delle dipendenze esplicita e isolata.", correct: true },
-            { text: "Parità tra ambienti di sviluppo, staging e produzione (Dev/Prod parity).", correct: true },
-            { text: "Configurazioni hard-coded direttamente nel codice sorgente.", correct: false }
-        ]
-    },
-    {
-        question: "Come viene gestita la persistenza dei dati in un'architettura a microservizi ideale?",
-        type: "single",
-        options: [
-            { text: "Tutti i microservizi scrivono su un unico database gigante condiviso.", correct: false },
-            { text: "Ogni microservizio possiede e gestisce il proprio database in modo esclusivo (Decentralization of data).", correct: true },
-            { text: "I dati vengono salvati solo nella memoria volatile per velocità.", correct: false },
-            { text: "Si utilizzano solo file di testo condivisi via FTP.", correct: false }
-        ]
-    },
-
-    // --- 7. CLOUD OPERATIONS (DevOps, IaC, FinOps) ---
+    // --- CLOUD OPERATIONS & IaC ---
     {
         question: "Cosa si intende per Infrastructure as Code (IaC)?",
         type: "single",
         options: [
-            { text: "L'uso di hardware fisico dedicato per scrivere codice.", correct: false },
-            { text: "La gestione e il provisioning dell'infrastruttura tramite file di definizione leggibili dalla macchina (codice) invece che configurazione manuale.", correct: true },
-            { text: "La pratica di scrivere documentazione cartacea per i server.", correct: false },
-            { text: "Un linguaggio di programmazione per creare interfacce grafiche.", correct: false }
+            { text: "Scrivere il codice dell'applicazione in Python", correct: false },
+            { text: "Gestire e provisioning dell'infrastruttura attraverso file di configurazione machine-readable invece che configurazione manuale", correct: true },
+            { text: "L'uso di server fisici al posto del cloud", correct: false },
+            { text: "La documentazione cartacea dell'infrastruttura", correct: false }
         ]
     },
     {
-        question: "Qual è la differenza tra l'approccio 'Dichiarativo' e 'Imperativo' nell'IaC?",
+        question: "Qual è la differenza tra approccio Imperativo e Dichiarativo nell'IaC?",
         type: "single",
         options: [
-            { text: "Non c'è differenza, sono sinonimi.", correct: false },
-            { text: "L'imperativo definisce 'cosa' vuoi ottenere (stato finale), il dichiarativo definisce 'come' ottenerlo (passaggi).", correct: false },
-            { text: "Il dichiarativo definisce lo stato finale desiderato e il tool calcola come raggiungerlo; l'imperativo elenca i passaggi esatti da eseguire.", correct: true },
-            { text: "Il dichiarativo funziona solo su AWS, l'imperativo solo su Azure.", correct: false }
+            { text: "L'imperativo descrive lo stato finale desiderato, il dichiarativo descrive i passi per raggiungerlo", correct: false },
+            { text: "Il dichiarativo descrive lo stato finale desiderato (what), l'imperativo descrive i passi passo-passo (how)", correct: true },
+            { text: "Non c'è differenza", correct: false },
+            { text: "L'imperativo usa solo GUI, il dichiarativo solo CLI", correct: false }
         ]
     },
     {
-        question: "Quali sono i vantaggi dell'adozione delle pratiche DevOps?",
+        question: "Quali sono obiettivi del DevOps?",
         type: "multiple",
         options: [
-            { text: "Rottura dei silos tra i team di sviluppo (Dev) e quelli operativi (Ops).", correct: true },
-            { text: "Automazione dei processi di test, integrazione e rilascio (CI/CD).", correct: true },
-            { text: "Rilascio di software più frequente e affidabile.", correct: true },
-            { text: "Aumento della burocrazia e dei tempi di approvazione manuale.", correct: false }
-        ]
-    },
-    {
-        question: "Cosa significa 'Continuous Integration' (CI)?",
-        type: "single",
-        options: [
-            { text: "Rilasciare il software in produzione una volta l'anno.", correct: false },
-            { text: "La pratica in cui gli sviluppatori uniscono frequentemente le modifiche al codice in un repository centrale, innescando build e test automatici.", correct: true },
-            { text: "L'installazione manuale degli aggiornamenti sui server dei clienti.", correct: false },
-            { text: "La collaborazione tra il reparto vendite e quello marketing.", correct: false }
-        ]
-    },
-    {
-        question: "Qual è l'obiettivo principale del dominio 'FinOps' nelle Cloud Operations?",
-        type: "single",
-        options: [
-            { text: "Massimizzare la spesa per ottenere sconti dai provider.", correct: false },
-            { text: "Portare la responsabilità finanziaria nelle decisioni ingegneristiche per allineare la spesa cloud al valore di business.", correct: true },
-            { text: "Gestire esclusivamente gli stipendi del personale IT.", correct: false },
-            { text: "Evitare l'uso del cloud per risparmiare denaro.", correct: false }
-        ]
-    },
-    {
-        question: "Cosa si intende per 'Observability' in un sistema distribuito?",
-        type: "single",
-        options: [
-            { text: "Avere delle telecamere di sicurezza nel data center.", correct: false },
-            { text: "La capacità di capire lo stato interno di un sistema basandosi sui dati che produce (log, metriche, tracce) per identificare e risolvere problemi.", correct: true },
-            { text: "La capacità di osservare gli utenti mentre usano l'applicazione.", correct: false },
-            { text: "Un tool che riavvia automaticamente i server.", correct: false }
+            { text: "Rompere i silos tra team di sviluppo e operazioni", correct: true },
+            { text: "Automatizzare test e deployment (CI/CD)", correct: true },
+            { text: "Rilasciare software più velocemente e con maggiore affidabilità", correct: true },
+            { text: "Aumentare la burocrazia nei processi di change management", correct: false }
         ]
     },
 
-    // --- 8. CYBERSECURITY FUNDAMENTALS ---
+    // --- SICUREZZA ---
     {
-        question: "Quali sono i tre pilastri della triade CIA nella sicurezza informatica?",
-        type: "multiple",
+        question: "Cosa garantisce l'obiettivo 'Confidentiality' della triade CIA?",
+        type: "single",
         options: [
-            { text: "Confidentiality (Riservatezza): i dati sono accessibili solo a chi è autorizzato.", correct: true },
-            { text: "Integrity (Integrità): i dati non vengono alterati in modo non autorizzato.", correct: true },
-            { text: "Availability (Disponibilità): i sistemi sono accessibili quando necessario.", correct: true },
-            { text: "Anonymity (Anonimato): l'identità dell'utente non è mai tracciabile.", correct: false }
+            { text: "Che i sistemi siano sempre attivi", correct: false },
+            { text: "Che le informazioni siano accessibili solo a chi è autorizzato", correct: true },
+            { text: "Che i dati non siano stati alterati", correct: false },
+            { text: "Che l'utente non possa negare un'azione", correct: false }
         ]
     },
     {
-        question: "Che tipo di attacco è un 'Man-in-the-Middle' (MITM)?",
+        question: "Quale tecnica crittografica utilizza una coppia di chiavi (pubblica e privata)?",
         type: "single",
         options: [
-            { text: "Un attacco in cui un malintenzionato si interpone segretamente tra due parti che comunicano, intercettando o alterando i dati.", correct: true },
-            { text: "Un attacco che mira a sovraccaricare un server con troppe richieste.", correct: false },
-            { text: "Un tentativo di indovinare la password provando tutte le combinazioni.", correct: false },
-            { text: "Un virus che cancella i file dal disco rigido.", correct: false }
+            { text: "Crittografia Simmetrica", correct: false },
+            { text: "Crittografia Asimmetrica", correct: true },
+            { text: "Hashing", correct: false },
+            { text: "Codifica Base64", correct: false }
         ]
     },
     {
-        question: "Cosa si intende per 'Social Engineering' (Ingegneria Sociale)?",
+        question: "A cosa serve un certificato digitale in una PKI (Public Key Infrastructure)?",
         type: "single",
         options: [
-            { text: "La progettazione di social network sicuri.", correct: false },
-            { text: "L'arte di manipolare le persone affinché compiano azioni o divulghino informazioni riservate (es. Phishing).", correct: true },
-            { text: "L'uso di algoritmi complessi per decifrare password.", correct: false },
-    
+            { text: "A crittografare il database", correct: false },
+            { text: "Ad associare univocamente un'identità a una chiave pubblica tramite la firma di una CA", correct: true },
+            { text: "A generare password sicure", correct: false },
+            { text: "A prevenire attacchi DDoS", correct: false }
+        ]
+    },
+    {
+        question: "In un attacco SQL Injection, l'attaccante cerca di:",
+        type: "single",
+        options: [
+            { text: "Indovinare la password provando molte combinazioni", correct: false },
+            { text: "Inserire codice SQL malevolo in un campo di input per manipolare il database", correct: true },
+            { text: "Intercettare il traffico di rete", correct: false },
+            { text: "Sovraccaricare il server con richieste", correct: false }
+        ]
+    },
+    {
+        question: "Cosa si intende per IAM (Identity and Access Management)?",
+        type: "single",
+        options: [
+            { text: "La gestione fisica dei server", correct: false },
+            { text: "Il framework di policy e tecnologie per gestire identità digitali e controllare l'accesso alle risorse", correct: true },
+            { text: "Un protocollo di rete per il trasferimento file", correct: false },
+            { text: "Un tipo di firewall", correct: false }
+        ]
+    }
+];
